@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     // Keep the addTaskTextField scaled dependening on the window width
     function checkWidth() {
-        $('#addTaskTextField').width($('#taskListContainer').width() - 150);
+        $('#addTaskTextField');
     }
     // Execute on load
     checkWidth();
@@ -172,6 +172,8 @@ $(function() {
 
     var taskList = JSON.parse(localStorage.getItem('taskList'));
     taskList = taskList || {};
+    var project = JSON.parse(localStorage.getItem('project'));
+    project = project || {};
 
     /* Set up the sortable lists */
     $( '#sortableTodo, #sortableCompleted' ).sortable({
@@ -268,8 +270,31 @@ $(function() {
 
         saveTaskListOrder();
         $('#addTaskTextField').val('');
+        $( "#dialog" ).dialog();
     });
 
     /* Initialize Radio buttons */
     $('#radio').buttonset();
+});
+
+/* Hook up the Add project button */
+$('#addProjectButton').click(function (e) {
+    e.preventDefault();
+
+    //var ids = new Date().getTime();
+    var projectName = $("input[id='addProjectTextField']").val();
+    var projectDescription = $("input[id='projectDescriptionField']").val();
+    var tempProjectItem = {
+        //id : id,
+        projectName: projectName,
+        projectDescription: projectDescription,
+        state: 'new'
+    };
+
+    // Saving element in local storage
+    project = tempProjectItem;
+    localStorage.setItem('Project', JSON.stringify(project));
+
+    $('#addProjectTextField').val('');
+    $('#projectDescriptionField').val('');
 });
