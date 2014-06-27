@@ -1,0 +1,103 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script src="/task-management-portlet/js/task-list-base.js"></script>
+<link href="/task-management-portlet/skin/css/task.css" rel="stylesheet" type="text/css">
+<script src="/task-management-portlet/js/jquery-ui-touch-punch-0.2.3.js"></script>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script>
+  $(function() {
+    $( "#tabs" ).tabs();
+  });
+  </script>
+
+
+<div id="tabs">
+    <ul>
+        <li><a href="#tabs-1">Add Projects</a></li>
+        <li><a href="#tabs-2">Add Tasks</a></li>
+        <li><a href="#tabs-3">Tasks Managment</a></li>
+    </ul>
+    <div id="tabs-1">
+        <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
+    </div>
+    <div id="tabs-2">
+        <div id="taskListContainer" class="container narrow">
+            <table class="">
+                <div id="addTask">
+
+                    <tr>
+                        <td><span>Name</span></td>
+                        <td><input id="addTaskTextField" type="text" autofocus width="270px"/></td>
+                    </tr>
+
+                    <tr>
+                        <td><span>Description</span></td>
+                        <td><textarea id="TaskDescriptionField" type="text"></textarea></td>
+                    </tr>
+
+                    <tr>
+                        <td><span>Severity</span></td>
+                        <td><select id="complexityComboBox" required>
+                            <option selected >Select One</option>
+                            <option>Low</option>
+                            <option>Medium</option>
+                            <option>Heigh</option>
+                        </select></td>
+                    </tr>
+
+                    <tr>
+                        <td><span>Project</span></td>
+                        <td><select id="projectComboBox" required>
+                            <option selected >Select One</option>
+                            <option>Projet 1</option>
+                            <option>Projet 2</option>
+                            <option>Projet 3</option>
+                        </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><input id="addTaskButton" type="submit" value="Add Task" /></td>
+                        <td></td>
+                    </tr>
+
+
+                </div>
+            </table>
+        </div>
+    </div>
+    <div id="tabs-3">
+        <div id="ToDoTasksHeader">
+            <h3>To Do Tasks</h3>
+            <ul id="sortableTodo" class="sortable"> </ul>
+        </div>
+
+        <div id="InprogresTasks">
+            <h3>In Progress Tasks</h3>
+        </div>
+
+        <ul id="inprogress" class="sortable"> </ul>
+
+        <div id="completedTasksHeader">
+            <h3>Completed Tasks</h3>
+            <span id="completedLabel">Completed Tasks</span>
+            <span id="dateLabel">Creation</span>
+            <span id="dateStart">Start</span>
+            <span id="lastDateLabel">Completion</span>
+
+        </div>
+
+
+        <ul id="sortableCompleted" class="sortable"></ul>
+    </div>
+
+    <div id="dialog" title="Task Add">
+        <p>This task is Add sucsesfully</p>
+    </div>
+
+</div>
