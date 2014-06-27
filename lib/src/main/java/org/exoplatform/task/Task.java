@@ -8,93 +8,83 @@ import java.util.List;
  */
 public class Task  {
 
-    private String id;
+    private String idTask;
 
-    private String projectId;
+    public String taskName;
 
-    private String reporter;
+    private String taskDescription;
 
-    private List<String> assignee;
+    private String complexity;
 
-    private String status;
+    private Date creationDate;
 
-    public String title;
+    private Date startDate;
 
-    private Date createdDate;
+    private Date completionDate;
 
-    private Date startedDate;
+    private String state;
 
-    private Date endDate;
-
-    public String getId() {
-        return id;
+    public String getIdTask() {
+        return idTask;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdTask(String idTask) {
+        this.idTask = idTask;
     }
 
-    public Date getEndDate() {
-        return endDate;
+    public String getTaskName() {
+        return taskName;
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public void setTaskName(String taskName) {
+        this.taskName = taskName;
     }
 
-    public String getProjectId() {
-        return projectId;
+    public String getTaskDescription() {
+        return taskDescription;
     }
 
-    public void setProjectId(String projectId) {
-        this.projectId = projectId;
+    public void setTaskDescription(String taskDescription) {
+        this.taskDescription = taskDescription;
     }
 
-    public String getReporter() {
-        return reporter;
+    public String getComplexity() {
+        return complexity;
     }
 
-    public void setReporter(String reporter) {
-        this.reporter = reporter;
+    public void setComplexity(String complexity) {
+        this.complexity = complexity;
     }
 
-    public List<String> getAssignee() {
-        return assignee;
+    public Date getStartDate() {
+        return startDate;
     }
 
-    public void setAssignee(List<String> assignee) {
-        this.assignee = assignee;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 
-    public String getStatus() {
-        return status;
+    public Date getCompletionDate() {
+        return completionDate;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setCompletionDate(Date completionDate) {
+        this.completionDate = completionDate;
     }
 
-    public String getTitle() {
-        return title;
+    public String getState() {
+        return state;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setState(String state) {
+        this.state = state;
     }
 
-    public Date getCreatedDate() {
-        return createdDate;
+    public Date getCreationDate() {
+        return creationDate;
     }
 
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
-    }
-
-    public Date getStartedDate() {
-        return startedDate;
-    }
-
-    public void setStartedDate(Date startedDate) {
-        this.startedDate = startedDate;
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
     }
 }
