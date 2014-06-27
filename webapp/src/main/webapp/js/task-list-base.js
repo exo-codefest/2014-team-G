@@ -5,9 +5,9 @@ $(document).ready(function() {
         $('#addTaskTextField').width($('#taskListContainer').width() - 150);
     }
     // Execute on load
-    //checkWidth();
+    checkWidth();
     // Bind event listener
-    //$(window).resize(checkWidth);
+    $(window).resize(checkWidth);
 });
 
 $(function() {
@@ -42,7 +42,6 @@ $(function() {
     var saveTaskListOrder = function() {
         var taskListOrder = $('#sortableTodo').sortable('toArray');
         var completedListOrder = $('#sortableCompleted').sortable('toArray');
-        var progressListOrder = $('#inprogress').sortable('toArray');
         var combinedOrder = $.merge( taskListOrder , completedListOrder );
 
         localStorage.setItem('taskListOrder', JSON.stringify(combinedOrder));
@@ -135,23 +134,8 @@ $(function() {
             //display the completed task header
             $('#completedTasksHeader').show();
         }
-        else if (taskListItem.state === 'started') {
-            listName = '#inprogress';
-            //display task in progress header
-            $('#InprogresTasks').show();
-        }
-        else {
-            listName = '#sortableTodo';
-            //display new task header
-            $('#ToDoTasksHeader').show();
-        }
-
         $(listName).append(updateTaskDisplayBasedOnState(elem, taskListItem.state));
     }
-
-
-
-
 
     /**
      * Return the date number along with the ordinal suffix, such as 1st, 2nd, 3rd.
@@ -190,7 +174,7 @@ $(function() {
     taskList = taskList || {};
 
     /* Set up the sortable lists */
-    $( '#sortableTodo, #sortableCompleted, #inprogress' ).sortable({
+    $( '#sortableTodo, #sortableCompleted' ).sortable({
         cancel : 'span',
         update: function(event, ui) {
             saveTaskListOrder();
@@ -217,16 +201,11 @@ $(function() {
             taskList[taskId].startDate = new Date().getTime();
             //Get span and update startDate
             $(this).parent().children('#start-date').text(formatDate(taskList[taskId].startDate));
-            parentContainer.remove();
-            addTaskToDisplay(taskList[taskId]);
-            //updateTaskDisplayBasedOnState(parentContainer,taskList[taskId].state);
-
+            updateTaskDisplayBasedOnState(parentContainer,taskList[taskId].state);
         } else if('stop-button' == this.id){
             parentContainer.css({'background-color': colors.newstate});
             taskList[taskId].state = 'new';
-            //updateTaskDisplayBasedOnState(parentContainer,taskList[taskId].state);
-            parentContainer.remove();
-            addTaskToDisplay(taskList[taskId]);
+            updateTaskDisplayBasedOnState(parentContainer,taskList[taskId].state);
         } else if('remove-button' == this.id){
             parentContainer.remove();
             delete taskList[taskId];
@@ -266,12 +245,10 @@ $(function() {
         var id = new Date().getTime();
         var creationDate = new Date().getTime();
         var taskName = $("input[id='addTaskTextField']").val();
-        var taskDescription = $("input[id='TaskDescriptionField']").val();
         var complexity = $('#complexityComboBox :selected').text();
         var tempTaskItem = {
             id : id,
             taskName: taskName,
-            taskDescription: taskDescription,
             complexity: complexity,
             creationDate: creationDate,
             startDate: '',
@@ -291,10 +268,8 @@ $(function() {
 
         saveTaskListOrder();
         $('#addTaskTextField').val('');
-        $('#TaskDescriptionField').val('');
-        $( "#dialog" ).dialog();
-
-
     });
 
+    /* Initialize Radio buttons */
+    $('#radio').buttonset();
 });
