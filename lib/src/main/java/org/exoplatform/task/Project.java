@@ -1,51 +1,36 @@
 package org.exoplatform.task;
 
-import java.util.Date;
+import java.util.List;
 
 /**
  * Created by nagui on 27/06/14.
  */
 public class Project {
-    private String id;
 
-    private String name;
+    private String idProject;
+
+    private String nameProject;
 
     private String owner;
 
     private String desc;
 
-    private Date dateCreated;
+    private List<Task> listTasks;
 
-    public String getId() {
-        return id;
+    public String getIdProject() {
+        return idProject;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdProject(String idProject) {
+        this.idProject = idProject;
     }
 
-    public Date getDateCreated() {
-        return dateCreated;
+    public String getNameProject() {
+        return nameProject;
     }
 
-    public void setDateCreated(Date dateCreated) {
-        this.dateCreated = dateCreated;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setNameProject(String nameProject) {
+        this.nameProject = nameProject;
     }
 
     public String getOwner() {
@@ -54,5 +39,13 @@ public class Project {
 
     public void setOwner(String owner) {
         this.owner = owner;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 }
