@@ -277,7 +277,7 @@ $(function() {
     $('#radio').buttonset();
 });
 
-/* Hook up the Add project button */
+/* Hook up the Add project button
 $('#addProjectButton').click(function (e) {
     e.preventDefault();
 
@@ -298,3 +298,4 @@ $('#addProjectButton').click(function (e) {
     $('#addProjectTextField').val('');
     $('#projectDescriptionField').val('');
 });
+ */
